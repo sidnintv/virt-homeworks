@@ -61,7 +61,7 @@
 
 <img width="469" alt="Screenshot 2022-11-23 at 21 29 10" src="https://user-images.githubusercontent.com/43722443/203634098-15d282d8-77ad-45cb-a6d4-92cb2af41e1a.png">
 
-
+<img width="832" alt="Screenshot 2022-11-23 at 23 05 50" src="https://user-images.githubusercontent.com/43722443/203646129-c39a7a52-bd0d-42e2-96e3-c8f24ef174c0.png">
 
 *Приложить вывод команд установленных версий каждой из программ, оформленный в markdown.*
 
@@ -70,7 +70,11 @@
 Воспроизвести практическую часть лекции самостоятельно.
 
 - Создать виртуальную машину.
+
 - Зайти внутрь ВМ, убедиться, что Docker установлен с помощью команды
 ```
 docker ps
 ```
+
+
+
