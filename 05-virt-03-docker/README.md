@@ -97,8 +97,7 @@ https://hub.docker.com/repository/docker/sidnintv/nginxtest
 - Добавьте еще один файл в папку ```/data``` на хостовой машине;
 - Подключитесь во второй контейнер и отобразите листинг и содержание файлов в ```/data``` контейнера.
 
-
-
+<img width="856" alt="Screenshot 2022-11-28 at 01 25 21" src="https://user-images.githubusercontent.com/43722443/204165328-b263115f-76cf-4838-a105-c8de59686845.png">
 
 ## Задача 4 (*)
 
