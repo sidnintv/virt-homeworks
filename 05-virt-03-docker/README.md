@@ -109,17 +109,33 @@ https://hub.docker.com/repository/docker/sidnintv/nginxtest
 
 Вот код:
 
+# Манифест Docker образа.
 FROM alpine:3.14
 RUN  CARGO_NET_GIT_FETCH_WITH_CLI=1 && \
      apk --no-cache add \
-     sudo python3 py3-pip openssl ca-certificates sshpass openssh-client rsync git && \
-     apk --no-cache add \
-     --virtual build-dependencies python3-dev libffi-dev musl-dev gcc cargo openssl-dev \
+     sudo \
+     python3 \
+     py3-pip \
+     openssl \
+     ca-certificates \
+     sshpass \
+     openssh-client \
+     rsync \
+     git && \
+     apk --no-cache add --virtual build-dependencies \
+     python3-dev \
+     libffi-dev \
+     musl-dev \
+     gcc \
+     cargo \
+     openssl-dev \
      libressl-dev \
      build-base && \
      pip install --upgrade pip wheel && \
      pip install --upgrade cryptography cffi && \
-     pip install ansible==2.9.24 && \
+     pip uninstall ansible-base && \
+     pip install ansible-core && \
+     pip install ansible==2.10.0 && \
      pip install mitogen ansible-lint jmespath && \
      pip install --upgrade pywinrm && \
      apk del build-dependencies && \
@@ -133,9 +149,12 @@ RUN  mkdir /ansible && \
 
 WORKDIR /ansible
 
+CMD [ "ansible-playbook", "--version" ]
+
+
 Вот ОШИБКА:
 
-<img width="1678" alt="Screenshot 2022-11-28 at 02 51 10" src="https://user-images.githubusercontent.com/43722443/204170043-fa7f2604-2ab6-4abf-b807-0ea3a558f379.png">
+<img width="964" alt="Screenshot 2022-11-28 at 03 18 36" src="https://user-images.githubusercontent.com/43722443/204172202-800c93ba-5f4d-4282-93ad-166ab444a7f7.png">
 
 ---
 
