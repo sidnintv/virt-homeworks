@@ -28,7 +28,7 @@
 
 Для получения зачета вам необходимо предоставить скриншот страницы с созданным образом из личного кабинета YandexCloud.
 
-<img width="1679" alt="Screenshot 2022-12-09 at 21 38 02" src="https://user-images.githubusercontent.com/43722443/206783694-a3d74452-224c-4f80-abd8-a828348fe0cb.png">
+<img width="1680" alt="Screenshot 2022-12-10 at 23 27 35" src="https://user-images.githubusercontent.com/43722443/206875916-e46874e4-bf2f-4459-ba84-62238eeb89dc.png">
 
 ## Задача 2
 
@@ -36,7 +36,7 @@
 
 Для получения зачета, вам необходимо предоставить cкриншот страницы свойств созданной ВМ из личного кабинета YandexCloud.
 
-<img width="1679" alt="Screenshot 2022-12-10 at 00 24 22" src="https://user-images.githubusercontent.com/43722443/206805447-7faa7622-838d-4fd7-aa60-d6a2bc941918.png">
+<img width="1676" alt="Screenshot 2022-12-10 at 23 49 16" src="https://user-images.githubusercontent.com/43722443/206876547-eacea7b4-1e9e-4268-8d84-716188331a27.png">
 
 ## Задача 3
 
@@ -47,6 +47,10 @@
 <p align="center">
   <img width="1200" height="600" src="./assets/yc_02.png">
 </p>
+
+<img width="1678" alt="Screenshot 2022-12-11 at 00 21 14" src="https://user-images.githubusercontent.com/43722443/206877529-491f4d84-bcd5-4d75-89b6-b78565710d24.png">
+
+<img width="1680" alt="Screenshot 2022-12-11 at 00 21 48" src="https://user-images.githubusercontent.com/43722443/206877534-2cee2b9b-42a8-464d-8372-eb54784ea1b5.png">
 
 ## Задача 4 (*)
 
