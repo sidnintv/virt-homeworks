@@ -24,6 +24,53 @@
 
 В следующих заданиях мы будем продолжать работу с данным контейнером.
 
+
+статус и версия сервера БД
+
+mysql> status
+--------------
+mysql  Ver 8.0.28 for Linux on x86_64 (MySQL Community Server - GPL)
+
+Connection id:		20
+Current database:	test_db
+Current user:		root@localhost
+SSL:			Not in use
+Current pager:		stdout
+Using outfile:		''
+Using delimiter:	;
+Server version:		8.0.28 MySQL Community Server - GPL
+Protocol version:	10
+Connection:		Localhost via UNIX socket
+Server characterset:	utf8mb4
+Db     characterset:	utf8mb4
+Client characterset:	latin1
+Conn.  characterset:	latin1
+UNIX socket:		/var/run/mysqld/mysqld.sock
+Binary data as:		Hexadecimal
+Uptime:			40 min 23 sec
+
+Threads: 2  Questions: 103  Slow queries: 0  Opens: 219  Flush tables: 3  Open tables: 137  Queries per second avg: 0.042
+--------------
+список таблиц
+
+mysql> show tables;
++-------------------+
+| Tables_in_test_db |
++-------------------+
+| orders            |
++-------------------+
+1 row in set (0.00 sec)
+количество записей с price > 300
+
+mysql> select count(*) from orders where price>300;
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+
 ## Задача 2
 
 Создайте пользователя test в БД c паролем test-pass, используя:
