@@ -44,7 +44,7 @@
 Восстановление БД из дампа
 
 ```
-postgres@spb-mon-serv:/$ psql -f /backup/dump.sql test_database
+postgres@srv-test:/$ psql -f /backup/dump.sql test_database
 SET
 SET
 SET
