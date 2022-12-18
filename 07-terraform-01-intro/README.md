@@ -67,7 +67,11 @@ on darwin_amd64
 В виде результата этой задачи приложите вывод `--version` двух версий терраформа доступных на вашем компьютере 
 или виртуальной машине.
 
-Я просто скачал исходники с git версии 0.12 и выполнил команду go installl затем сделал так: stv@Timotheys-MacBook-Air bin % mv terraform /usr/local/bin/terraform-0.12
+Я просто скачал исходники с git версии 0.12 и выполнил команду go installl затем сделал так
+
+```
+stv@Timotheys-MacBook-Air bin % mv terraform /usr/local/bin/terraform-0.12
+```
 
 Итого
 
