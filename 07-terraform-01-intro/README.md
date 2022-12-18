@@ -67,8 +67,20 @@ on darwin_amd64
 В виде результата этой задачи приложите вывод `--version` двух версий терраформа доступных на вашем компьютере 
 или виртуальной машине.
 
+Я просто скачал исходники с git версии 0.12 и выполнил команду go installl затем сделал так: stv@Timotheys-MacBook-Air bin % mv terraform /usr/local/bin/terraform-0.12
 
+Итого
 
+```
+stv@Timotheys-MacBook-Air bin % terraform --version
+Terraform v1.4.0-dev
+on darwin_amd64
+stv@Timotheys-MacBook-Air bin % terraform-0.12 --version
+Terraform v0.12.32-dev
+
+Your version of Terraform is out of date! The latest version
+is 1.3.6. You can update by downloading from https://www.terraform.io/downloads.html
+```
 ---
 
 ### Как cдавать задание
