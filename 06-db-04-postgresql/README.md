@@ -105,19 +105,16 @@ postgres=# select avg_width from pg_stats where tablename='orders';
 
 Предложите SQL-транзакцию для проведения данной операции.
 
-Можно ли было изначально исключить "ручное" разбиение при проектировании таблицы orders?
-
-Определить тип на моменте проектирования и создания - partitioned table
-
 ```
 postgres=# 
 begin;
     create table orders_new (
         id integer NOT NULL,
         title varchar(80) NOT NULL,
-        price integer) partition by range(price);
+        price integer partition by range(price);
     create table orders_less partition of orders_new for values from (0) to (499);
     create table orders_more partition of orders_new for values from (499) to (99999);
+    
     insert into orders_new (id, title, price) select * from orders;
 commit;
 BEGIN
@@ -128,13 +125,35 @@ INSERT 0 8
 COMMIT
 ```
 
+Можно ли было изначально исключить "ручное" разбиение при проектировании таблицы orders?
+
+Нужно было применить при проектирования секционирование таблиц:
+
+Пример:
+Создание таблицы, секционируемой по диапазонам:
+```
+CREATE TABLE orders (
+    id integer NOT NULL UNIQUE,
+    title varchar(80) NOT NULL UNIQUE,
+    price integer DEFAULT 0
+) PARTITION BY RANGE (price);
+```
+
 ## Задача 4
 
 Используя утилиту `pg_dump` создайте бекап БД `test_database`.
 
 Как бы вы доработали бэкап-файл, чтобы добавить уникальность значения столбца `title` для таблиц `test_database`?
 
-Для определения занчения столбца title можно использовать индекс.
+Для уникальности значения столбца title можно и нужно использовать UNIQUE (гарантирует, что все значения в столбце различаются).
+И добавил бы такое свойство к ID:
+
+CREATE TABLE public.orders (
+    id integer NOT NULL,
+    title character varying(80) NOT NULL,
+    price integer DEFAULT 0,
+    CONSTRAINT UNQ_TITLE UNIQUE (id,title)
+);
 
 postgres@srv-test:/$ pg_dump -d test_database > /backup/db_dump.sql
 
