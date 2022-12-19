@@ -111,7 +111,7 @@ begin;
     create table orders_new (
         id integer NOT NULL,
         title varchar(80) NOT NULL,
-        price integer partition by range(price);
+        price integer) partition by range(price);
     create table orders_less partition of orders_new for values from (0) to (499);
     create table orders_more partition of orders_new for values from (499) to (99999);
     
@@ -135,7 +135,7 @@ COMMIT
 CREATE TABLE orders (
     id integer NOT NULL UNIQUE,
     title varchar(80) NOT NULL UNIQUE,
-    price integer DEFAULT 0
+    price integer
 ) PARTITION BY RANGE (price);
 ```
 
@@ -145,8 +145,8 @@ CREATE TABLE orders (
 
 Как бы вы доработали бэкап-файл, чтобы добавить уникальность значения столбца `title` для таблиц `test_database`?
 
-Для уникальности значения столбца title можно и нужно использовать UNIQUE (гарантирует, что все значения в столбце различаются).
-И добавил бы такое свойство к ID:
+Для уникальности значения столбца title можно и нужно использовать параметр уникальности UNIQUE - гарантирует, что все значения в столбце различаются.
+И добавил бы этот параметр к ID:
 
 CREATE TABLE public.orders (
     id integer NOT NULL,
@@ -154,8 +154,12 @@ CREATE TABLE public.orders (
     price integer DEFAULT 0,
     CONSTRAINT UNQ_TITLE UNIQUE (id,title)
 );
-
+```
 postgres@srv-test:/$ pg_dump -d test_database > /backup/db_dump.sql
+```
+```
+Я тут глупость скопипастил при спешке про индекс, по определению никак к уникальности таблицы не приклеить только если сделать сам индекс уникальным, это больше про производительность, используя индекс, сервер баз данных может находить и извлекать нужные строки гораздо быстрее, чем без него.
+```
 
 ---
 
