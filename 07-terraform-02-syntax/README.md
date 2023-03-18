@@ -48,8 +48,10 @@ secret_key     ****************P7wz shared-credentials-file
 не указывать авторизационный токен в коде, а терраформ провайдер брал его из переменных окружений.
 
 ```
-Работа с терраформ в яндекс облаке была настроена ранее в начальных лекциях этого блока.
-
+Работа с терраформ в яндекс облаке была настроена ранее в начальных лекциях этого блока:
+```
+```
+https://github.com/sidnintv/virt-homeworks/tree/virt-11/07-terraform-02-syntax/terraform_YC
 ```
 
 ## Задача 2. Создание aws ec2 или yandex_compute_instance через терраформ. 
@@ -90,7 +92,7 @@ secret_key     ****************P7wz shared-credentials-file
 2. Ссылку на репозиторий с исходной конфигурацией терраформа.  
 
 ```
-https://github.com/sidnintv/virt-homeworks/tree/virt-11/07-terraform-02-syntax/terraform
+https://github.com/sidnintv/virt-homeworks/tree/virt-11/07-terraform-02-syntax/terraform_AWS
 ```
  
 ---
