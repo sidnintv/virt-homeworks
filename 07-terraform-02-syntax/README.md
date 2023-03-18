@@ -29,12 +29,12 @@ AWS предоставляет достаточно много бесплатн�
 В виде результата задания приложите вывод команды `aws configure list`.
 
 ```
-stv@Timotheys-MacBook-Air ~ % aws configure list
+➜  07-terraform-02-syntax git:(virt-11) aws configure list
       Name                    Value             Type    Location
       ----                    -----             ----    --------
    profile                <not set>             None    None
-access_key     ****************IGPV shared-credentials-file    
-secret_key     ****************xJGM shared-credentials-file    
+access_key     ****************RDMS shared-credentials-file    
+secret_key     ****************P7wz shared-credentials-file    
     region                <not set>             None    None
 ```
 
