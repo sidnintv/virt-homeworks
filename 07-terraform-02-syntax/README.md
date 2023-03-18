@@ -83,6 +83,10 @@ secret_key     ****************xJGM shared-credentials-file
 ```
 
 2. Ссылку на репозиторий с исходной конфигурацией терраформа.  
+
+```
+https://github.com/sidnintv/virt-homeworks/tree/virt-11/07-terraform-02-syntax/terraform
+```
  
 ---
 
