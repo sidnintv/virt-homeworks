@@ -14,6 +14,18 @@
 
 В качестве результата задания приложите снимок экрана с успешным применением конфигурации.
 
+В настройках workspaces изменил исполнение на local, была проблема с доступом к aws, оставил так потом изучу где надо и как задать параметр доступа, по идее надо в облако добавить ключик или токен, но я этого не хочу.
+
+вот ошибка:
+``
+Error: error configuring Terraform AWS Provider: no valid credential sources for Terraform AWS Provider found. Please see https://registry.terraform.io/providers/hashicorp/aws for more information about providing credentials. Error: NoCredentialProviders: no valid providers in chain caused by: EnvAccessKeyNotFound: failed to find credentials in the environment. SharedCredsLoad: failed to load profile, . EC2RoleRequestError: no EC2 instance role found caused by: RequestError: send request failed caused by: Get "http://169.254.169.254/latest/meta-data/iam/security-credentials/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+with provider["registry.terraform.io/hashicorp/aws"]
+on main.tf line 1, in provider "aws":
+provider "aws" {
+``
+
+ вот удачный старт:
+
 <img width="1616" alt="Screenshot 2023-04-15 at 16 59 40" src="https://user-images.githubusercontent.com/43722443/232231016-39b325c2-26d5-4570-b77d-11c4eb3494dd.png">
 
 <img width="1607" alt="Screenshot 2023-04-15 at 16 59 59" src="https://user-images.githubusercontent.com/43722443/232231027-fec5f3a0-800a-408b-88ed-e73da23e3f9a.png">
