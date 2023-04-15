@@ -14,6 +14,21 @@
 
 В качестве результата задания приложите снимок экрана с успешным применением конфигурации.
 
+<img width="1616" alt="Screenshot 2023-04-15 at 16 59 40" src="https://user-images.githubusercontent.com/43722443/232231016-39b325c2-26d5-4570-b77d-11c4eb3494dd.png">
+
+<img width="1607" alt="Screenshot 2023-04-15 at 16 59 59" src="https://user-images.githubusercontent.com/43722443/232231027-fec5f3a0-800a-408b-88ed-e73da23e3f9a.png">
+
+<img width="1590" alt="Screenshot 2023-04-15 at 17 00 12" src="https://user-images.githubusercontent.com/43722443/232231033-4c70e3e6-5d3c-4153-ac30-a117942b2a73.png">
+
+<img width="1679" alt="Screenshot 2023-04-15 at 17 05 59" src="https://user-images.githubusercontent.com/43722443/232231041-3486b719-5485-44be-8943-71170a7db640.png">
+
+<img width="1678" alt="Screenshot 2023-04-15 at 17 06 16" src="https://user-images.githubusercontent.com/43722443/232231046-39a8b9a7-0a58-4d42-b9ab-8837abbcafe7.png">
+
+<img width="1680" alt="Screenshot 2023-04-15 at 17 06 30" src="https://user-images.githubusercontent.com/43722443/232231049-42fa8f34-f3f8-4ba3-8b61-4ed45b7f4f70.png">
+
+<img width="1672" alt="Screenshot 2023-04-15 at 17 08 02" src="https://user-images.githubusercontent.com/43722443/232231051-a8faad4d-49f0-4adb-a3f4-e930ebf2000b.png">
+
+
 ## Задача 2. Написать серверный конфиг для атлантиса. 
 
 Смысл задания – познакомиться с документацией 
