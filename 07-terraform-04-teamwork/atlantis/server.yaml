@@ -1,0 +1,27 @@
+---
+atlantis:
+  config:
+    allow_repo_config: true
+    repos:
+      - id: sidnintv/.+
+        allowed_overrides:
+          - workflow
+        workflow: default_workflow
+    workflows:
+      default_workflow:
+        plan:
+          steps:
+            - init
+            - plan:
+                lock: false
+        apply:
+          steps:
+            - apply
+    apply_requirements:
+      - approved
+      - mergeable
+    webhook_secrets:
+      sidnintv/.+:
+        secret: "your-webhook-secret"
+    slack:
+      url: "https://hooks.slack.com/services/your-webhook-url"
