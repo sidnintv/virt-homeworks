@@ -59,6 +59,78 @@ provider "aws" {
 
 В качестве результата приложите ссылку на файлы `server.yaml` и `atlantis.yaml`.
 
+
+
+`server.yaml`
+```
+---
+atlantis:
+  config:
+    allow_repo_config: true
+    repos:
+      - id: sidnintv/.+
+        allowed_overrides:
+          - workflow
+        workflow: default_workflow
+    workflows:
+      default_workflow:
+        plan:
+          steps:
+            - init
+            - plan:
+                lock: false
+        apply:
+          steps:
+            - apply
+    apply_requirements:
+      - approved
+      - mergeable
+    webhook_secrets:
+      sidnintv/.+:
+        secret: "your-webhook-secret"
+    slack:
+      url: "https://hooks.slack.com/services/your-webhook-url"
+```
+
+`atlantis.yaml`
+```
+---
+version: 3
+automerge: false
+projects:
+  - name: stage
+    dir: .
+    workflow: custom_workflow
+    terraform_version: v1.4.5
+    autoplan:
+      enabled: true
+      when_modified:
+        - "*.tf"
+    apply_requirements: []
+  - name: prod
+    dir: .
+    workflow: custom_workflow
+    terraform_version: v1.4.5
+    autoplan:
+      enabled: true
+      when_modified:
+        - "*.tf"
+    apply_requirements: []
+
+workflows:
+  custom_workflow:
+    plan:
+      steps:
+        - init
+        - workspace
+        - plan
+    apply:
+      steps:
+        - workspace
+        - apply
+```
+
+
 ## Задача 3. Знакомство с каталогом модулей. 
 
 1. В [каталоге модулей](https://registry.terraform.io/browse/modules) найдите официальный модуль от aws для создания
