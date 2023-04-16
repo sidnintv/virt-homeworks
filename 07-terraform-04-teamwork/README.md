@@ -17,7 +17,7 @@
 Этот конфиг использовал для работы через terraform cloud:
 
 ```
-https://github.com/sidnintv/virt-homeworks/tree/virt-11/07-terraform-03-basic/terraform_AWS
+https://github.com/sidnintv/virt-homeworks/tree/virt-11/07-terraform-04-teamwork/terraform_AWS
 ```
 
 В настройках workspaces изменил исполнение на local, была проблема с доступом к aws, оставил так потом изучу где надо и как задать параметр доступа, по идее надо в облако добавить ключик или токен, но я этого не хочу.
