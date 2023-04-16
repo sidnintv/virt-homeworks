@@ -59,7 +59,9 @@ provider "aws" {
 
 В качестве результата приложите ссылку на файлы `server.yaml` и `atlantis.yaml`.
 
-
+```
+https://github.com/sidnintv/virt-homeworks/tree/virt-11/07-terraform-04-teamwork/atlantis
+```
 
 `server.yaml`
 ```
