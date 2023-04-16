@@ -1,13 +1,24 @@
 terraform {
   backend "s3" {
     bucket = "sidninterrastatre"
-    key    = "prod/terraform.tfstate"
     region = "us-east-1"
   }
 }
 
 provider "aws" {
   region = "us-east-1"
+}
+
+locals {
+  workspace_instance_type = {
+    stage = "t2.micro"
+    prod  = "t2.small"
+  }
+
+  workspace_instance_count = {
+    stage = 1
+    prod  = 2
+  }
 }
 
 data "aws_ami" "ubuntu" {
@@ -27,8 +38,10 @@ data "aws_ami" "ubuntu" {
 }
 
 resource "aws_instance" "vmubuntu" {
+  count = local.workspace_instance_count[terraform.workspace]
+
   ami           = data.aws_ami.ubuntu.id
-  instance_type = "t2.micro"
+  instance_type = local.workspace_instance_type[terraform.workspace]
 
   key_name               = "stv"
   associate_public_ip_address = true
@@ -41,6 +54,30 @@ resource "aws_instance" "vmubuntu" {
 
   tags = {
     Name = "vmubuntu-instance"
+  }
+}
+
+resource "aws_instance" "vmubuntu_foreach" {
+  for_each = { for i in range(local.workspace_instance_count[terraform.workspace]) : i => i }
+
+  ami           = data.aws_ami.ubuntu.id
+  instance_type = local.workspace_instance_type[terraform.workspace]
+
+    key_name               = "stv"
+  associate_public_ip_address = true
+  monitoring            = true
+  disable_api_termination = false
+  instance_initiated_shutdown_behavior = "stop"
+
+  vpc_security_group_ids = ["sg-05f3f7b4af3361e8d"]
+  subnet_id              = "subnet-0dcdedcf7497aadb8"
+
+  tags = {
+    Name = "vmubuntu-instance"
+  }
+
+  lifecycle {
+    create_before_destroy = true
   }
 }
 
