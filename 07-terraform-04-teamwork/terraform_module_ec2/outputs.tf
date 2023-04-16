@@ -11,9 +11,5 @@ output "aws_region" {
 }
 
 output "instance_private_ip" {
-  value = aws_instance.vmubuntu.private_ip
-}
-
-output "instance_subnet_id" {
-  value = aws_instance.vmubuntu.subnet_id
+  value = module.vmubuntu.private_ip
 }

@@ -18,9 +18,13 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-resource "aws_instance" "vmubuntu" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = "t2.micro"
+module "vmubuntu" {
+  source = "terraform-aws-modules/ec2-instance/aws"
+  
+  name           = "vmubuntu-instance"
+  
+  ami            = data.aws_ami.ubuntu.id
+  instance_type  = "t2.micro"
 
   key_name               = "stv"
   associate_public_ip_address = true
@@ -30,10 +34,6 @@ resource "aws_instance" "vmubuntu" {
 
   vpc_security_group_ids = ["sg-05f3f7b4af3361e8d"]
   subnet_id              = "subnet-0dcdedcf7497aadb8"
-
-  tags = {
-    Name = "vmubuntu-instance"
-  }
 }
 
 data "aws_caller_identity" "current" {}
