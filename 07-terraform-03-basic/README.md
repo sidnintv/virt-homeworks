@@ -10,6 +10,21 @@
 [здесь](https://www.terraform.io/docs/backends/types/s3.html).
 1. Зарегистрируйте бэкэнд в терраформ проекте как описано по ссылке выше. 
 
+Сделано
+
+```
+terraform {
+  backend "s3" {
+    bucket = "sidninterrastatre"
+    key    = "prod/terraform.tfstate"
+    region = "us-east-1"
+  }
+}
+```
+
+<img width="1670" alt="Screenshot 2023-04-16 at 23 39 21" src="https://user-images.githubusercontent.com/43722443/232340924-105c4d46-dab4-449a-a458-4e696f8d4dbf.png">
+
+
 
 ## Задача 2. Инициализируем проект и создаем воркспейсы. 
 
