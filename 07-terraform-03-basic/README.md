@@ -12,18 +12,13 @@
 
 Сделано
 
+все файлы здесь:
+
 ```
-terraform {
-  backend "s3" {
-    bucket = "sidninterrastatre"
-    key    = "prod/terraform.tfstate"
-    region = "us-east-1"
-  }
-}
+https://github.com/sidnintv/virt-homeworks/tree/virt-11/07-terraform-03-basic/terraform_AWS
 ```
 
-<img width="1670" alt="Screenshot 2023-04-16 at 23 39 21" src="https://user-images.githubusercontent.com/43722443/232340924-105c4d46-dab4-449a-a458-4e696f8d4dbf.png">
-
+<img width="1678" alt="Screenshot 2023-04-17 at 00 52 57" src="https://user-images.githubusercontent.com/43722443/232344664-58cc9fe9-1849-4f50-a72b-223c7b622d93.png">
 
 
 ## Задача 2. Инициализируем проект и создаем воркспейсы. 
@@ -43,7 +38,243 @@ dynamodb.
 
 В виде результата работы пришлите:
 * Вывод команды `terraform workspace list`.
+
+<img width="1598" alt="Screenshot 2023-04-17 at 00 18 16" src="https://user-images.githubusercontent.com/43722443/232343566-25be9f11-940c-4d8c-8a8f-496b19362a21.png">
+
 * Вывод команды `terraform plan` для воркспейса `prod`.  
+
+```
+➜  terraform_AWS git:(virt-11) ✗ terraform plan -out=s3.tfplan
+data.aws_region.current: Reading...
+data.aws_caller_identity.current: Reading...
+data.aws_region.current: Read complete after 0s [id=us-east-1]
+data.aws_ami.ubuntu: Reading...
+data.aws_caller_identity.current: Read complete after 1s [id=126591494765]
+data.aws_ami.ubuntu: Read complete after 1s [id=ami-0aa2b7722dc1b5612]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_instance.vmubuntu[0] will be created
+  + resource "aws_instance" "vmubuntu" {
+      + ami                                  = "ami-0aa2b7722dc1b5612"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = true
+      + availability_zone                    = (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      + disable_api_termination              = false
+      + ebs_optimized                        = (known after apply)
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = "stop"
+      + instance_state                       = (known after apply)
+      + instance_type                        = "t2.small"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = "stv"
+      + monitoring                           = true
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = (known after apply)
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = (known after apply)
+      + source_dest_check                    = true
+      + subnet_id                            = "subnet-0dcdedcf7497aadb8"
+      + tags                                 = {
+          + "Name" = "vmubuntu-instance"
+        }
+      + tags_all                             = {
+          + "Name" = "vmubuntu-instance"
+        }
+      + tenancy                              = (known after apply)
+      + user_data                            = (known after apply)
+      + user_data_base64                     = (known after apply)
+      + vpc_security_group_ids               = [
+          + "sg-05f3f7b4af3361e8d",
+        ]
+    }
+
+  # aws_instance.vmubuntu[1] will be created
+  + resource "aws_instance" "vmubuntu" {
+      + ami                                  = "ami-0aa2b7722dc1b5612"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = true
+      + availability_zone                    = (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      + disable_api_termination              = false
+      + ebs_optimized                        = (known after apply)
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = "stop"
+      + instance_state                       = (known after apply)
+      + instance_type                        = "t2.small"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = "stv"
+      + monitoring                           = true
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = (known after apply)
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = (known after apply)
+      + source_dest_check                    = true
+      + subnet_id                            = "subnet-0dcdedcf7497aadb8"
+      + tags                                 = {
+          + "Name" = "vmubuntu-instance"
+        }
+      + tags_all                             = {
+          + "Name" = "vmubuntu-instance"
+        }
+      + tenancy                              = (known after apply)
+      + user_data                            = (known after apply)
+      + user_data_base64                     = (known after apply)
+      + vpc_security_group_ids               = [
+          + "sg-05f3f7b4af3361e8d",
+        ]
+    }
+
+  # aws_instance.vmubuntu_foreach["0"] will be created
+  + resource "aws_instance" "vmubuntu_foreach" {
+      + ami                                  = "ami-0aa2b7722dc1b5612"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = true
+      + availability_zone                    = (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      + disable_api_termination              = false
+      + ebs_optimized                        = (known after apply)
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = "stop"
+      + instance_state                       = (known after apply)
+      + instance_type                        = "t2.small"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = "stv"
+      + monitoring                           = true
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = (known after apply)
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = (known after apply)
+      + source_dest_check                    = true
+      + subnet_id                            = "subnet-0dcdedcf7497aadb8"
+      + tags                                 = {
+          + "Name" = "vmubuntu-instance"
+        }
+      + tags_all                             = {
+          + "Name" = "vmubuntu-instance"
+        }
+      + tenancy                              = (known after apply)
+      + user_data                            = (known after apply)
+      + user_data_base64                     = (known after apply)
+      + vpc_security_group_ids               = [
+          + "sg-05f3f7b4af3361e8d",
+        ]
+    }
+
+  # aws_instance.vmubuntu_foreach["1"] will be created
+  + resource "aws_instance" "vmubuntu_foreach" {
+      + ami                                  = "ami-0aa2b7722dc1b5612"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = true
+      + availability_zone                    = (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      + disable_api_termination              = false
+      + ebs_optimized                        = (known after apply)
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = "stop"
+      + instance_state                       = (known after apply)
+      + instance_type                        = "t2.small"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = "stv"
+      + monitoring                           = true
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = (known after apply)
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = (known after apply)
+      + source_dest_check                    = true
+      + subnet_id                            = "subnet-0dcdedcf7497aadb8"
+      + tags                                 = {
+          + "Name" = "vmubuntu-instance"
+        }
+      + tags_all                             = {
+          + "Name" = "vmubuntu-instance"
+        }
+      + tenancy                              = (known after apply)
+      + user_data                            = (known after apply)
+      + user_data_base64                     = (known after apply)
+      + vpc_security_group_ids               = [
+          + "sg-05f3f7b4af3361e8d",
+        ]
+    }
+
+Plan: 4 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + aws_account_id      = "126591494765"
+  + aws_region          = "us-east-1"
+  + aws_user_id         = "AIDAR26LQ5JWSSWY7ILPC"
+  + instance_id         = [
+      + null,
+      + null,
+    ]
+  + instance_private_ip = [
+      + null,
+      + null,
+    ]
+  + instance_public_ip  = [
+      + null,
+      + null,
+    ]
+  + instance_subnet_id  = [
+      + "subnet-0dcdedcf7497aadb8",
+      + "subnet-0dcdedcf7497aadb8",
+    ]
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Saved the plan to: s3.tfplan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "s3.tfplan"
+```
 
 ---
 
